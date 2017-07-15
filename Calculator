@@ -1,0 +1,228 @@
+using System;
+using System.Collections.Generic;
+
+namespace FirstConsoleProject
+{
+	class MainClass
+	{
+		public static void Main(string[] args)
+		{
+			Console.ForegroundColor = ConsoleColor.Blue;
+			int answer01;
+			Console.WriteLine("Welcome to my Calculator App, :). There is an age limit,\nso please enter your age to determine your eligibility");
+			Console.ForegroundColor = ConsoleColor.DarkBlue;//changing the color to darkblue will pop up alot.
+			answer01 = Convert.ToInt32(Console.ReadLine());//i put the darkblue font for the answer because i like the color when typing.
+			if (answer01 >= 18)//needed to convert console.readline to an integer for this.
+			{
+				Console.ForegroundColor = ConsoleColor.Green;
+				Console.WriteLine("   Access Approved");
+				Console.ForegroundColor = ConsoleColor.Blue;
+			}
+			else
+			{
+				Console.ForegroundColor = ConsoleColor.Red;
+				Console.WriteLine("   Access Denied");
+				Console.WriteLine("Sorry, seems your to young, please close the app and wait a few years");
+				Console.ForegroundColor = ConsoleColor.DarkBlue;
+				Console.ReadKey();
+				return;
+			}
+			Start:
+			while (true)
+			{
+				Random numberGenerator = new Random();//number generator is for a quiz i made with random numbers
+				double answer02;
+				string q = "q";
+				string subtract = "subtract";
+				string add = "add";
+				string divide = "divide";
+				string multiply = "multiply";
+				double num01;
+				double num02;
+				string answer;
+				Console.WriteLine("Do you want to Muliply, Divide, Add, or Subtract - (Please answer with lowercase letters!)\nYou Can Also Try Our Math Test by Typing q");
+				Console.ForegroundColor = ConsoleColor.DarkBlue;
+				answer = Console.ReadLine();
+				Console.ForegroundColor = ConsoleColor.Blue;
+				if (answer == multiply)
+				{
+					Console.Write("\nType a Number to Multiply: ");
+					Console.ForegroundColor = ConsoleColor.DarkBlue;
+					num01 = Convert.ToDouble(Console.ReadLine());//converted to a double for a little extra precision.
+					Console.ForegroundColor = ConsoleColor.Blue;
+					Console.Write("Type a Second Number To Multiply: ");
+					Console.ForegroundColor = ConsoleColor.DarkBlue;
+					num02 = Convert.ToDouble(Console.ReadLine());
+					Console.ForegroundColor = ConsoleColor.Blue;
+					Console.WriteLine("The Answer is " + num01 * num02 + ".\n");
+					break;
+				}
+				else if (answer == divide)
+				{
+					Console.Write("\nType a Number to Divide: ");
+					Console.ForegroundColor = ConsoleColor.DarkBlue;
+					num01 = Convert.ToDouble(Console.ReadLine());
+					Console.ForegroundColor = ConsoleColor.Blue;
+					Console.Write("Type a Second Number To Divide by: ");
+					Console.ForegroundColor = ConsoleColor.DarkBlue;
+					num02 = Convert.ToDouble(Console.ReadLine());
+					Console.ForegroundColor = ConsoleColor.Blue;
+					Console.WriteLine("The Answer is " + num01 / num02 + ".\n");
+					goto Start;
+				}
+				else if (answer == add)
+				{
+					Console.Write("\nType a Number to Add: ");
+					Console.ForegroundColor = ConsoleColor.DarkBlue;
+					num01 = Convert.ToDouble(Console.ReadLine());
+					Console.ForegroundColor = ConsoleColor.Blue;
+					Console.Write("Type a Second Number To Add: ");
+					Console.ForegroundColor = ConsoleColor.DarkBlue;
+					num02 = Convert.ToDouble(Console.ReadLine());
+					var sum = num01 + num02;
+					Console.ForegroundColor = ConsoleColor.Blue;
+					Console.WriteLine("The Answer is " + sum + ".\n");
+					goto Start;
+				}
+				else if (answer == subtract)
+				{
+					Console.Write("Type a Number to Subtract from: ");
+					Console.ForegroundColor = ConsoleColor.DarkBlue;
+					num01 = Convert.ToDouble(Console.ReadLine());
+					Console.ForegroundColor = ConsoleColor.Blue;
+					Console.Write("Type a Second Number To Subtract by: ");
+					Console.ForegroundColor = ConsoleColor.DarkBlue;
+					num02 = Convert.ToDouble(Console.ReadLine());
+					var difference = num01 - num02;
+					Console.ForegroundColor = ConsoleColor.Blue;
+					Console.WriteLine("The Answer is " + difference + ".\n");
+					goto Start;
+				}
+				else if (answer == q)
+				{
+					double num03 = numberGenerator.Next(1, 21);
+					double num04 = numberGenerator.Next(1, 11);
+					double num05 = numberGenerator.Next(1, 21);
+					double num06 = numberGenerator.Next(1, 3);// will only use numbers 1 and 2, this is for
+					double num07 = numberGenerator.Next(1, 21);//the divide part of the test, don't want 17÷15.
+					double num08 = numberGenerator.Next(1, 11);
+					double num09 = numberGenerator.Next(1, 21);
+					double num10 = numberGenerator.Next(1, 11);
+					double num11 = numberGenerator.Next(1, 21);
+					double num12 = numberGenerator.Next(1, 3);
+
+
+					Console.ForegroundColor = ConsoleColor.Cyan;
+					Console.WriteLine("You'll Probrally Need a Paper and Pencil,Good Luck!");
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine("You Can Quit at Anytime by Pressing 0");
+					Console.ForegroundColor = ConsoleColor.Cyan;
+
+				Problem1:
+					Console.Write("\nWhat is " + num03 + "+" + num04 + "?");
+					answer02 = Convert.ToDouble(Console.ReadLine());
+					if (answer02 == num03 + num04)//problem1
+					{
+					Problem2:
+						Console.Write("What is " + num05 + "÷" + num06 + "?");
+						answer02 = Convert.ToDouble(Console.ReadLine());
+						if (answer02 == num05 / num06)//problem2
+						{
+						Problem3:
+							Console.Write("What is " + num07 + "x" + num08 + "?");
+							answer02 = Convert.ToDouble(Console.ReadLine());
+							if (answer02 == num07 * num08)//problem3
+							{
+							Problem4:
+								Console.Write("What is " + num09 + "+" + num10 + "?");
+								answer02 = Convert.ToDouble(Console.ReadLine());
+								if (answer02 == num09 + num10)//problem4
+								{
+								Problem5:
+									Console.Write("What is " + num11 + "÷" + num12 + "?");
+									answer02 = Convert.ToDouble(Console.ReadLine());
+									if (answer02 == num11 / num12)//problem5
+									{
+										Console.WriteLine("Congratz, you passed our small quiz\n");
+										Console.ForegroundColor = ConsoleColor.DarkBlue;
+										goto Start;
+									}
+									else if (answer02 == 0)
+									{
+										Console.ForegroundColor = ConsoleColor.DarkBlue;
+										goto Start;
+									}
+									else
+									{
+										Console.ForegroundColor = ConsoleColor.Red;
+										Console.WriteLine("Error");
+										Console.ForegroundColor = ConsoleColor.Cyan;
+										Console.WriteLine("Try Again!");
+										goto Problem5;
+									}
+								}
+								else if (answer02 == 0)
+								{
+									Console.ForegroundColor = ConsoleColor.DarkBlue;
+									goto Start;
+								}
+								else
+								{
+									Console.ForegroundColor = ConsoleColor.Red;
+									Console.WriteLine("Error");
+									Console.ForegroundColor = ConsoleColor.Cyan;
+									Console.WriteLine("Try Again!");
+									goto Problem4;
+								}
+							}
+							else if (answer02 == 0)
+							{
+								Console.ForegroundColor = ConsoleColor.DarkBlue;
+								goto Start;
+							}
+							else
+							{
+								Console.ForegroundColor = ConsoleColor.Red;
+								Console.WriteLine("Error");
+								Console.ForegroundColor = ConsoleColor.Cyan;
+								Console.WriteLine("Try Again!");
+								goto Problem3;
+							}
+						}
+						else if (answer02 == 0)
+						{
+							Console.ForegroundColor = ConsoleColor.DarkBlue;
+							goto Start;
+						}
+						else
+						{
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine("Error");
+							Console.ForegroundColor = ConsoleColor.Cyan;
+							Console.WriteLine("Try Again!");
+							goto Problem2;
+						}
+					}
+					else if (answer02 == 0)
+					{
+						Console.ForegroundColor = ConsoleColor.DarkBlue;
+						goto Start;
+					}
+					else
+					{
+						Console.ForegroundColor = ConsoleColor.Red;
+						Console.WriteLine("Error");
+						Console.ForegroundColor = ConsoleColor.Cyan;
+						Console.WriteLine("Try Again!");
+						goto Problem1;
+					}
+
+				}
+				else
+				{
+					break;
+				}
+			}
+		}
+	}
+}
